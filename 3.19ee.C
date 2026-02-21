@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+// identity з обмеженням 99
+double identity_limit(double x) {
+    if (x > 99) return 99;
+    return x;
+}
+
+// softplus з обмеженням 99
+double softplus_limit(double x) {
+    double val = log(1 + exp(x));
+    if (val > 99) return 99;
+    return val;
+}
+
+int main() {
+    double x, y, z;
+
+    // вводимо три числа
+    printf("Введи x: ");
+    scanf("%lf", &x);
+    printf("Введи y: ");
+    scanf("%lf", &y);
+    printf("Введи z: ");
+    scanf("%lf", &z);
+
+    // виводимо результати
+    printf("identity_limit(x) = %f\n", identity_limit(x));
+    printf("identity_limit(y) = %f\n", identity_limit(y));
+    printf("identity_limit(z) = %f\n", identity_limit(z));
+
+    printf("softplus_limit(x) = %f\n", softplus_limit(x));
+    printf("softplus_limit(y) = %f\n", softplus_limit(y));
+    printf("softplus_limit(z) = %f\n", softplus_limit(z));
+
+    return 0;
+}
